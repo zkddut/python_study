@@ -8,14 +8,18 @@ class Solution(object):
     """
     vowels = []
     s_list = list(s)
+    count = len(s_list) - 1
     for i in range(0, len(s_list)):
-      count = 0
       if s_list[i] in ['a','e','i','o','u','A','E','I','O','U']:
-        for j in range(count, len(s_list)):
-          if s_list[len(s_list)-j-1] in ['a','e','i','o','u','A','E','I','O','U']:
-            s_list[len(s_list)-j-1],s_list[i] = s_list[i],s_list[len(s_list)-j-1]
-            count = j
-            break;
+        print i
+        print s_list[i]
+        while (s_list[count] not in ['a','e','i','o','u','A','E','I','O','U']):
+          count = count - 1
+        s_list[count],s_list[i] = s_list[i],s_list[count]
+        print count
+        print s_list[count]
+        count = count - 1
+
       if i >= count:
         break;
 
@@ -24,5 +28,5 @@ class Solution(object):
     return str
 
 a = Solution()
-print a.reverseVowels("abcdeABCDE")
+print a.reverseVowels("hello")
 
